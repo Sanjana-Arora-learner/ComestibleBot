@@ -1,0 +1,35 @@
+module.exports = {
+    constants :
+    {
+        welcome:`Hi! This is ComestibleBot - Your Indian Groceries List Generator. We strongly recommend to Carry Your List to avoid wastage.`,
+        welcome1: `To Get Started, Type or Click 'Get Started'.`,
+        bye:'Have a Nice day! Bbye :)',
+        thanks:`You are Welcome! Please do visit us again! :)`,
+        default:`Sorry!I couldn't understand what you mean.`,
+        getstarted:`Get Started`,
+        generateMessage:`Sure! Please choose your items......`,
+        askMore:`Do you wish to Add/Remove any Item?\nType 'Add Pasta,Noodles'\nOR\n'Remove Pasta,Noodles'\nOR`,        
+        actionconfirmation:`Done`,
+        notdoneconfirmation:`Oops! This is not done. We could not find any items to process`,
+        displaying:`Here is your List:-  `,
+        noListmsg:`No List here :(`,
+        saveList:`Do you wish to save the list for future?`,
+        yesSave:'Yes, Save List',
+        noSave:'No, Do Not Save',
+        savedconfirmation:`Great! Saved `,
+        savedError:`Sorry! Not able to save it right now :( `,
+        optionsList:`What do you want to do next?`,
+        mailList:`Email My List`,
+        orderOnline:`Order Online`,
+        askMail:`Please provide your email address `,
+        mailed:`We have emailed your grocery list to your email Id.`,
+        redirectingOnline:`Thanks for giving us the opportunity to help you.You will now be redirected to another app for your order. `,
+        optionsError:`We could not complete your action. Please try later.`,
+        existingList:`We already have a grocery List saved by you from Last time. Do you wish to see your previous list?`,
+        displayList:`Display List`,
+        createNewList:`Create New List`,
+        modifyList:`Modify this List`,
+        finalList:`Lock this List`, 
+        errorList:`This went into error!!! Please try back later....`       
+    }
+}

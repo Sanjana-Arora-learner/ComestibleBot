@@ -1,0 +1,50 @@
+{
+  "name": "grocerygeneratorbot",
+  "version": "1.0.0",
+  "description": "This bot generates grocery list based on the given inputs",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "init-assets": "webpack --progress",
+    "init-server": "node server.js",
+    "start": "SET NODE_ENV=PRODUCTION && npm run init-assets && npm run init-server",
+    "build": "SET NODE_ENV=PRODUCTION && npm run init-assets && npm run init-server"
+  },
+  "proxy": "https://fa900559cfb8.ngrok.io/",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "7.10.2",
+    "@types/core-js": "2.5.3",
+    "body-parser": "1.18.2",
+    "cookie-parser": "1.4.5",
+    "core-js": "3.6.5",
+    "cors": "2.8.5",
+    "eslint": "7.2.0",
+    "express": "4.16.3",
+    "fs-extra": "9.0.1",
+    "nodemailer": "6.4.10",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-hot-loader": "4.3.11",
+    "react-router-dom": "5.2.0",
+    "request": "2.83.0",
+    "restify": "4.1.1",
+    "serve-favicon": "2.5.0",
+    "sqlite3": "4.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.10.1",
+    "@babel/core": "7.10.2",
+    "@babel/polyfill": "7.10.1",
+    "@babel/preset-env": "7.10.2",
+    "@babel/preset-react": "7.10.1",
+    "babel-loader": "8.1.0",
+    "css-loader": "1.0.0",
+    "html-webpack-plugin": "4.3.0",
+    "style-loader": "0.23.0",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.11",
+    "webpack-dev-server": "3.11.0"
+  }
+}
