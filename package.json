@@ -8,7 +8,7 @@
     "init-assets": "webpack --progress",
     "init-server": "node server.js",
     "start": "npm run init-assets && npm run init-server",
-    "build": "SET NODE_ENV=PRODUCTION && npm run init-assets && npm run init-server"
+    "build": "npm run init-assets && npm run init-server"
   },
   "proxy": "https://fa900559cfb8.ngrok.io/",
   "author": "",
