@@ -9,7 +9,7 @@
     "init-server": "node server.js",
     "start": "node server.js",
     "build": "node server.js",
-    "heroku-postbuild": "node run init-assets"
+    "heroku-postbuild": "npm run init-assets"
   },
   "proxy": "https://fa900559cfb8.ngrok.io/",
   "author": "",
@@ -43,7 +43,7 @@
     "babel-loader": "8.1.0",
     "css-loader": "1.0.0",
     "html-webpack-plugin": "4.3.0",
-    "style-loader": "0.23.0",
+    "style-loader": "0.23.0",    
     "webpack-dev-server": "3.11.0",
     "react-hot-loader": "4.3.11"
   },
