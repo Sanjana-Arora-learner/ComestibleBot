@@ -3,7 +3,6 @@
 const response=require('./Response');
 const uStore=require('../Store/User-store');
 const mailer=require('../Mailer');
-var fs = require('fs-extra');
 
 const extractEntity=(nlp,entity)=>{
     let obj=nlp[entity] && nlp[entity][0];
