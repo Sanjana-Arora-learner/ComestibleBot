@@ -30,7 +30,9 @@ if (referer) {
     
     
 }
-res.sendFile(path.resolve("Public", "index.html"));
+let value=path.join(__dirname, `../Public/index.html`);
+console.log(value);
+res.sendFile(path.resolve(path.join(__dirname, `../Public/index.html`)));
 });
 
 router.get('/optionspostback', (req, res) => {
