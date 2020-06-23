@@ -15,6 +15,7 @@ const server=express();
 const PORT= process.env.PORT || 3000;
 
 //Use the Static assets
+console.log(__dirname);
 server.use(favicon(path.join(__dirname, '/Public', '/favicon.ico')));
 server.use(express.static("Public"));
 
