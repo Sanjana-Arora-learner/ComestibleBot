@@ -1,8 +1,6 @@
 'use strict';
 
-if(process.env.Node_ENV === 'production')
-{
-    module.exports = {
+module.exports = {
         fb :
         {
             pageAccessToken:process.env.pageAccessToken,
@@ -12,4 +10,3 @@ if(process.env.Node_ENV === 'production')
             pass:process.env.pass
         }
     }
-} 
