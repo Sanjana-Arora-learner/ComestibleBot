@@ -135,7 +135,7 @@ class App extends React.Component {
                         <div className="panel panel-primary">
                             <div className="panel-heading">{this.getCategoryTitle()}</div>
                             <div className="panel-body">
-                                <form action="options/optionspostback" method="get">                    
+                                <form action="/options/optionspostback" method="get">                    
                                 <input type="hidden" name="psid" id="psid" value={this.state.userId}></input>
                                 <input type="hidden" name="selectedItems" id="selecteditems" value={this.state.ItemsSelected}></input>
                                 <input type="hidden" name="category" id="category"></input>

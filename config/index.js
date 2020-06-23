@@ -12,4 +12,6 @@ if(process.env.Node_ENV === 'PRODUCTION')
             pass:process.env.pass
         }
     }
+} else {
+    module.exports=require('./development.json');
 }

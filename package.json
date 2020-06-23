@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "init-assets": "webpack --progress",
     "init-server": "node server.js",
-    "start": "npm run init-assets && npm run init-server",
-    "build": "npm run init-assets && npm run init-server"
+    "start": "node server.js",
+    "build": "node server.js",
+    "heroku-postbuild": "webpack -p"
   },
   "proxy": "https://fa900559cfb8.ngrok.io/",
   "author": "",
