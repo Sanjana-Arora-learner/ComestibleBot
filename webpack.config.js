@@ -4,7 +4,7 @@ const path = require( "path" );
 
 module.exports = {
     mode: dev ? "development" : "production",
-    entry: "./Public/index",
+    entry: "./Public/index.js",
     resolve: {
         extensions: ["*", ".js", ".jsx"],
     },
