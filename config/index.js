@@ -7,6 +7,7 @@ module.exports = {
             verifyToken:process.env.verifyToken,
             appSecret:process.env.appSecret,
             senderMail:process.env.senderMail,
-            pass:process.env.pass
+            pass:process.env.pass,
+            OrderAppId:process.env.OrderAppId
         }
     }

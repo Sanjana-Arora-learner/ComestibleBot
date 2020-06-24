@@ -13,7 +13,8 @@ class UserStore
         const sql_create = `CREATE TABLE IF NOT EXISTS UserGroceryList (
             ID INTEGER PRIMARY KEY AUTOINCREMENT,
             SenderId VARCHAR(200) NOT NULL,
-            GroceryList TEXT
+            GroceryList TEXT,
+            CONSTRAINT senderId_unique UNIQUE (SenderId)
           );`;
           
           db.run(sql_create, err => {
@@ -49,8 +50,6 @@ class UserStore
         });
         text=text.substring(1, text.length);
         list=list ? list+","+text: text;
-        //let moreItems=groceryItems.split(",");
-        //list.push(moreItems);
         if(list){ 
         this.userGroceryList.set(sender,list);
         }
@@ -115,12 +114,18 @@ class UserStore
                     let capitalizedLetter=element.charAt(0).toUpperCase() + element.slice(1);
                     text=text + `${index +1}. ${capitalizedLetter}\n`;
                 }); 
-                //text=uniquelist.join('\n'); 
             }
         }
         return text;
     }
-
+    getGroceryList(sender) {
+        let list='';
+        if(this.userGroceryList.has(sender))
+        {
+            list=this.userGroceryList.get(sender);
+        }
+        return list;
+    }
     checkIfGroceryListAvailable(sender)
     {
         return this.userGroceryList.has(sender);
