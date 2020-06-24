@@ -32,34 +32,68 @@ router.post('/',
             const {
                 message,
                 sender,
+                pageId,
                 postback,
-                isPost
+                isPost,
+                isHandoverMessage,
+                metadata,
+                fromStandBy
             } = msg;
         console.log(msg);
             if (message) {
                 mprocessor.handleMessage(serverURL,sender,message).then((response) =>{
-                    for(let index=0; index < response.length ; index ++){
-                        let m=response[index];
-                        f.txt(sender, m, isPost);
-                    }
+                    sendMessage(sender,response,isPost,pageId);
                 }).catch(error => {
                     console.log(error);
-                    f.txt(sender, error);
+                    sendMessage(sender,error,false);
                 });
             }
-            if(postback){
+            else if(postback){
                 mprocessor.handlePostbacks(serverURL,sender,postback).then((response) =>{
-                    for(let index=0; index < response.length ; index ++){
-                        let m=response[index];
-                        f.txt(sender, m,isPost);
-                    }
+                    sendMessage(sender,response,isPost);
                 }).catch(error => {
                     console.log(error);
-                    f.txt(sender, error);
+                    sendMessage(sender,error,false);
                 });
+            }
+            else if(isHandoverMessage)
+            {
+                if(metadata.message)
+                {
+                    mprocessor.handleMessage(serverURL,sender,message).then((response) =>{
+                        sendMessage(sender,response,isPost);
+                    }).catch(error => {
+                        console.log(error);
+                        sendMessage(sender,error,false);
+                    });
+                }
+                else {
+                    mprocessor.handleHandoverMessage(serverURL,sender,metadata).then((response) =>{
+                        sendMessage(sender,response,false);
+                    }).catch(error => {
+                        console.log(error);
+                        sendMessage(sender,error,false);
+                    });
+                }
+                
             }
 		});
 		return next();
-	});
+    });
+    
+    function sendMessage(sender, messages, isPost,pageId)
+    {
+        console.log(messages);
+        for(let index=0; index < messages.length ; index ++){
+            let m=messages[index];
+            if(m.passControl)
+            {
+                f.passControl(sender,config.fb.OrderAppId,m.metadata);
+            }
+            else{
+                f.txt(sender, m,isPost,pageId);
+            }
+        }
+    }
 
 module.exports = router;

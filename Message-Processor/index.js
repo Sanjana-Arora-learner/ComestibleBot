@@ -94,6 +94,15 @@ module.exports = class MessageProcessor {
         this.intent=message.payload;
         return GetResponseFromIntent(serverURL,sender,message,this.intent);
     }
+
+    handleHandoverMessage(serverURL,sender,message)
+    {
+        let mess=JSON.parse(message);
+        if(mess.orderStatus){ 
+            this.intent='ORDERSTATUS';
+        }
+        return GetResponseFromIntent(serverURL,sender,mess,this.intent);
+    } 
 }
 
 const GetResponseFromIntent = (serverURL,sender,nlpdata,intent) =>{
@@ -320,7 +329,7 @@ const GetResponseFromIntent = (serverURL,sender,nlpdata,intent) =>{
                             let array=[];
                             uStore.deleteUserGroceryList(sender);
                             array.push(createTextResponse(response.constants.mailed));
-                            array.push(createTextResponse("Thanks for giving us the opportunity to help you. :)"))
+                            array.push(createTextResponse(response.constants.thankYouFinal))
                             return array;
                         }).catch(err => {
                             let array=[];
@@ -353,8 +362,26 @@ const GetResponseFromIntent = (serverURL,sender,nlpdata,intent) =>{
             case new String(response.constants.orderOnline).toUpperCase():
             {
                  //Mail the list and delete from memory
-                 uStore.deleteUserGroceryList(sender);
-                message.push(createTextResponse(response.constants.redirectingOnline));
+                 let list= uStore.getGroceryList(sender);
+                let msg={
+                    passControl:true,
+                    metadata:list
+                };
+                message.push(msg);
+                message.push(createTextResponse(response.constants.redirectingOnline));                
+                break;
+            }
+            case 'ORDERSTATUS':
+            {
+                uStore.deleteUserGroceryList(sender);
+                if(nlpdata.orderStatus && nlpdata.orderStatus === 'OrderConfirmed'){
+                    message.push(createTextResponse(response.constants.orderStatusSuccess));
+                    message.push(createTextResponse(response.constants.thankYouFinal));
+                }
+                else{
+                    message.push(createTextResponse(response.constants.optionsError));
+                    message.push(createGreetingsResponse());
+                }                
                 break;
             }
             case 'BYE':

@@ -10,7 +10,7 @@ function sendGroceryListMail(recipient_email, list) {
         }
     });
     
-    let emailBody=`Hi, \n\nPlease find below your grocery list:- \n\n\n${list}\nThank you for using our services.\nBest Regards,\nComestibleBot - Your Indian Groceries List Generator`
+    let emailBody=`Hi, \n\nPlease find below your grocery list:- \n\n\n${list}\nThank you for using our services.\n\nBest Regards,\nComestibleBot\n(Your Indian Groceries List Generator)`
 
     let message= {
         from: config.fb.senderMail, 

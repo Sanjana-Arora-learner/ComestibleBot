@@ -23,13 +23,15 @@ module.exports = {
         orderOnline:`Order Online`,
         askMail:`Please provide your email address `,
         mailed:`We have emailed your grocery list to your email Id.`,
-        redirectingOnline:`Thanks for giving us the opportunity to help you.You will now be redirected to another app for your order. `,
+        redirectingOnline:`Please wait.... `,
+        orderStatusSuccess:`We have successfully placed your order. `,
+        thankYouFinal:`Thanks for giving us the opportunity to help you. Please do visit us again! :) `,
         optionsError:`We could not complete your action. Please try later.`,
         existingList:`We already have a grocery List saved by you from Last time. Do you wish to see your previous list?`,
         displayList:`Display List`,
-        createNewList:`Create New List`,
-        modifyList:`Modify this List`,
-        finalList:`Lock this List`, 
+        createNewList:`Create New`,
+        modifyList:`Modify`,
+        finalList:`Final List`, 
         errorList:`This went into error!!! Please try back later....`       
     }
 }

@@ -1,7 +1,6 @@
 
 import React from 'react';
 import {getAllCategories, getItems,CategoriesTitle} from '../Store/Grocery-store/index.js'
-//import Config from 'Config';
 
 
 class App extends React.Component {
@@ -37,26 +36,6 @@ class App extends React.Component {
         this.setState({userId:params.get("sid")});
         this.getAllCategories();    
     }
-
-    /*scriptLoaded(){
-        window.extAsyncInit = function() {
-        console.log("test1");        
-        MessengerExtensions.getContext(''+Config.pageAccessToken+'',
-            function success(thread_context) {
-                // success
-                console.log("success");                
-                this.setState({userId:thread_context.psid});
-                console.log(thread_context.psid);
-            },
-            function error(err) {
-                // error
-                console.log("error");
-                console.log(err);                
-            }
-        );
-    }
-}*/
-
     getAllCategories()
     {
         let result=getAllCategories();
